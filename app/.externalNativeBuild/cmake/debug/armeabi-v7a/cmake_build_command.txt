@@ -1,0 +1,16 @@
+Executable : /home/SERILOCAL/d.dadolahi-s/Android/Sdk/cmake/3.6.4111459/bin/cmake
+arguments : 
+-H/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app
+-B/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/debug/armeabi-v7a
+-DANDROID_ABI=armeabi-v7a
+-DANDROID_PLATFORM=android-24
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/build/intermediates/cmake/debug/obj/armeabi-v7a
+-DCMAKE_BUILD_TYPE=Debug
+-DANDROID_NDK=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle
+-DCMAKE_TOOLCHAIN_FILE=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/build/cmake/android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/cmake/3.6.4111459/bin/ninja
+-GAndroid Gradle - Ninja
+-DANDROID_TOOLCHAIN=clang
+-DANDROID_STL=gnustl_static
+jvmArgs : 
+

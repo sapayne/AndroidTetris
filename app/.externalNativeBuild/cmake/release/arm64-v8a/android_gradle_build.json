@@ -1,0 +1,78 @@
+
+{
+	"buildFiles" : 
+	[
+		"/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/CMakeLists.txt"
+	],
+	"cFileExtensions" : [ "c" ],
+	"cleanCommands" : 
+	[
+		"/home/SERILOCAL/d.dadolahi-s/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/release/arm64-v8a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"app-glue-Release-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "app-glue",
+			"buildCommand" : "/home/SERILOCAL/d.dadolahi-s/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/release/arm64-v8a --target app-glue",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android --gcc-toolchain=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64 --sysroot=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sysroot  -I/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/android/native_app_glue -I../../../../../../common/vulkan_wrapper  -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sysroot/usr/include/aarch64-linux-android -D__ANDROID_API__=24 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c",
+					"workingDirectory" : "/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/release/arm64-v8a"
+				}
+			],
+			"output" : "/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/release/arm64-v8a/libapp-glue.a",
+			"toolchain" : "7292578427026977923"
+		},
+		"vktuts-Release-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "vktuts",
+			"buildCommand" : "/home/SERILOCAL/d.dadolahi-s/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/release/arm64-v8a --target vktuts",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android --gcc-toolchain=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64 --sysroot=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sysroot  -Dvktuts_EXPORTS -I/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/android/native_app_glue -I../../../../../../common/vulkan_wrapper -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/include -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sysroot/usr/include/aarch64-linux-android -D__ANDROID_API__=24 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security   -std=c++11 -Wall -Werror                      -DVK_USE_PLATFORM_ANDROID_KHR -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/src/main/jni/VulkanMain.cpp",
+					"workingDirectory" : "/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android --gcc-toolchain=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64 --sysroot=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sysroot  -Dvktuts_EXPORTS -I/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/android/native_app_glue -I../../../../../../common/vulkan_wrapper -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/include -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sysroot/usr/include/aarch64-linux-android -D__ANDROID_API__=24 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security   -std=c++11 -Wall -Werror                      -DVK_USE_PLATFORM_ANDROID_KHR -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/src/main/jni/AndroidMain.cpp",
+					"workingDirectory" : "/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android --gcc-toolchain=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64 --sysroot=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sysroot  -Dvktuts_EXPORTS -I/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/android/native_app_glue -I../../../../../../common/vulkan_wrapper -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/include -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sysroot/usr/include/aarch64-linux-android -D__ANDROID_API__=24 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security   -std=c++11 -Wall -Werror                      -DVK_USE_PLATFORM_ANDROID_KHR -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/src/main/jni/streamline_annotate.cpp",
+					"workingDirectory" : "/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android --gcc-toolchain=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64 --sysroot=/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sysroot  -Dvktuts_EXPORTS -I/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/android/native_app_glue -I../../../../../../common/vulkan_wrapper -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/include -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -isystem /home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sysroot/usr/include/aarch64-linux-android -D__ANDROID_API__=24 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security   -std=c++11 -Wall -Werror                      -DVK_USE_PLATFORM_ANDROID_KHR -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/common/vulkan_wrapper/vulkan_wrapper.cpp",
+					"workingDirectory" : "/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/release/arm64-v8a"
+				}
+			],
+			"output" : "/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/build/intermediates/cmake/release/obj/arm64-v8a/libvktuts.so",
+			"toolchain" : "7292578427026977923"
+		}
+	},
+	"toolchains" : 
+	{
+		"7292578427026977923" : 
+		{
+			"cCompilerExecutable" : "/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+		}
+	}
+}

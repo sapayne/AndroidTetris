@@ -1,0 +1,8 @@
+# ninja log v5
+0	40	0	CMakeFiles/app-glue.dir/home/SERILOCAL/d.dadolahi-s/Android/Sdk/ndk-bundle/sources/android/native_app_glue/android_native_app_glue.c.o	ac6ca56f0845e058
+40	49	0	libapp-glue.a	31ca37b6132b1fdf
+50	98	0	CMakeFiles/vktuts.dir/src/main/jni/AndroidMain.cpp.o	4ff60f510e297b9d
+49	117	0	CMakeFiles/vktuts.dir/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https_/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/common/vulkan_wrapper/vulkan_wrapper.cpp.o	c1eabe79d6aafa0e
+50	143	0	CMakeFiles/vktuts.dir/src/main/jni/streamline_annotate.cpp.o	c2af70b4305ed19
+50	699	0	CMakeFiles/vktuts.dir/src/main/jni/VulkanMain.cpp.o	3b9d36071d07f0f0
+699	749	0	../../../../build/intermediates/cmake/debug/obj/x86_64/libvktuts.so	5b9fd33d2827d8a

@@ -1,0 +1,4 @@
+/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/edit_cache.dir
+/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/rebuild_cache.dir
+/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/vktuts.dir
+/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/app-glue.dir
