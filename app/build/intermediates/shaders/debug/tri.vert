@@ -23,13 +23,30 @@ layout(set = 0, binding = 0) uniform buff_t
 
 } buff;
 
-
-
-
 layout (location = 0) in vec4 pos;
 layout (location = 1) out vec4 position;
-void main() {
 
+mat4 deadFunc(mat4 _a, mat4 _b)
+{
+
+mat4 mAns;
+
+mAns = _a * _b;
+for (int i=0; i < 4; i++)
+{
+    for (int j=0; j < 4; j++)
+    {
+    mAns[i][j] = _a[i][j] * _b[i][j];
+    }
+}
+return mAns;
+
+}
+
+
+
+void main() {
+    //mat4 result =deadFunc(buff.model, buff.view);
     gl_Position = buff.model* buff.view* buff.proj*  pos;
-    position = gl_Position;
+    position = vec4(pos.x, pos.y,pos.z,1.0f);
 }

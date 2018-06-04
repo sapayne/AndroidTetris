@@ -31,8 +31,8 @@
     <output url="file://$MODULE_DIR$/build/intermediates/classes/debug" />
     <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/debug" />
     <exclude-output />
-    <content url="file://$USER_HOME$/Android/Sdk/ndk-bundle/sources/android/native_app_glue">
-      <sourceFolder url="file://$USER_HOME$/Android/Sdk/ndk-bundle/sources/android/native_app_glue" isTestSource="false" />
+    <content url="file://$MODULE_DIR$/../../../../../../../../../../Android/Sdk/ndk-bundle/sources/android/native_app_glue">
+      <sourceFolder url="file://$MODULE_DIR$/../../../../../../../../../../Android/Sdk/ndk-bundle/sources/android/native_app_glue" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$/../../common/vulkan_wrapper">
       <sourceFolder url="file://$MODULE_DIR$/../../common/vulkan_wrapper" isTestSource="false" />

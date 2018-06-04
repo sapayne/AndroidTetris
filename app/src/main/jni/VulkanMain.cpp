@@ -100,6 +100,10 @@ VkDescriptorSetLayout descriptorSetLayout;
 VkDescriptorPool descriptorPool;
 VkDescriptorSet descriptorSet;
 
+VkImage depthImage;
+VkDeviceMemory depthImageMemory;
+VkImageView depthImageView;
+
 struct uniBuffObj
 {
     glm::mat4 model;
@@ -112,8 +116,8 @@ struct UniFrag {
 }sun;
 
 std::vector<float> objVerts ;
-
-
+std::vector<float> trueVerts ;
+std::vector<int> index ;
 // Android Native App pointer...
 android_app* androidAppCtx = nullptr;
 VkDeviceMemory vdm;
@@ -125,7 +129,11 @@ void setImageLayout(VkCommandBuffer cmdBuffer, VkImage image,
                     VkImageLayout oldImageLayout, VkImageLayout newImageLayout,
                     VkPipelineStageFlags srcStages,
                     VkPipelineStageFlags destStages);
-
+void createImage(uint32_t width, uint32_t height, VkFormat format,
+                 VkImageTiling tiling, VkImageUsageFlags usage,
+                 VkMemoryPropertyFlags properties, VkImage& image,
+                 VkDeviceMemory& imageMemory);
+VkImageView createImageView(VkImage image, VkFormat format, VkImageAspectFlags aspectFlags);
 void createDescriptorPool();
 void createDescSet();
 void updateUniformBuffer();
@@ -434,24 +442,13 @@ bool CreateBuffers(void) {
 
     // Vertex positions
 
-        /*float j = i;
-        const float vertexData[] = {
 
-                -1, -1, 1,
-                j, -j, j,
-                -j, j, j,
-                j, j, j,
-                -j, j, -j,
-                j, j, -j,
-                -j, -j, -j,
-                j, -j, -j
-        };*/
 
         // Create a vertex buffer
         VkBufferCreateInfo createBufferInfo{
                 .sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO,
                 .pNext = nullptr,
-                .size = objVerts.size()* sizeof(float),
+                .size = trueVerts.size()* sizeof(float),
                 .usage = VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,
                 .flags = 0,
                 .sharingMode = VK_SHARING_MODE_EXCLUSIVE,
@@ -468,7 +465,7 @@ bool CreateBuffers(void) {
         VkMemoryAllocateInfo allocInfo{
                 .sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,
                 .pNext = nullptr,
-                .allocationSize = objVerts.size() * sizeof(float),
+                .allocationSize = trueVerts.size() * sizeof(float),
                 .memoryTypeIndex = 0,  // Memory type assigned in the next step
         };
 
@@ -483,16 +480,12 @@ bool CreateBuffers(void) {
         CALL_VK(vkAllocateMemory(device.device_, &allocInfo, nullptr, &deviceMemory));
 
         void *data;
-        CALL_VK(vkMapMemory(device.device_, deviceMemory, 0, objVerts.size() * sizeof(float), 0,
+        CALL_VK(vkMapMemory(device.device_, deviceMemory, 0, trueVerts.size() * sizeof(float), 0,
                             &data));
-        memcpy(data, &objVerts[0], objVerts.size() * sizeof(float));
+        memcpy(data, &trueVerts[0], trueVerts.size() * sizeof(float));
         vkUnmapMemory(device.device_, deviceMemory);
 
-        CALL_VK(
-                vkBindBufferMemory(device.device_, buffers.vertexBuf_[0], deviceMemory, 0));
-
-
-
+        CALL_VK(vkBindBufferMemory(device.device_, buffers.vertexBuf_[0], deviceMemory, 0));
 
 
     return true;
@@ -538,6 +531,7 @@ bool CreateBuffers2(void) {
     MapMemoryTypeToIndex(memReq.memoryTypeBits,
                          VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT,
                          &allocInfo.memoryTypeIndex);
+
 
     // Allocate memory for the buffer
     VkDeviceMemory deviceMemory;
@@ -596,9 +590,32 @@ void readFile(const char* filePath)
             i++;
             objVerts.push_back((float)atof(&fileContent[i]));//push the z coordinates
 
+
+        }
+        if (fileContent[i] == 'f' && fileContent[i+1] == ' ')
+        {
+            i+=2;
+            index.push_back((int)atof(&fileContent[i]));
+            while(fileContent[i] != ' ')
+            {
+                i++;
+            }
+            i++;
+            index.push_back((int)atof(&fileContent[i]));
+            while(fileContent[i] != ' ')
+            {
+                i++;
+            }
+            i++;
+            index.push_back((float)atof(&fileContent[i]));
         }
     }
-
+    for (int i=0;i< index.size(); i++ )
+    {
+        trueVerts.push_back(objVerts[index[i]*3]);
+        trueVerts.push_back(objVerts[index[i]*3 + 1]);
+        trueVerts.push_back(objVerts[index[i]*3 + 2]);
+    }
 }
 
 enum ShaderType { VERTEX_SHADER, FRAGMENT_SHADER };
@@ -768,7 +785,7 @@ VkResult CreateGraphicsPipeline(void) {
             .pNext = nullptr,
             .depthClampEnable = VK_FALSE,
             .rasterizerDiscardEnable = VK_FALSE,
-            .polygonMode = VK_POLYGON_MODE_LINE,
+            .polygonMode = VK_POLYGON_MODE_FILL,
             .cullMode = VK_CULL_MODE_NONE,
             .frontFace = VK_FRONT_FACE_CLOCKWISE,
             .depthBiasEnable = VK_FALSE,
@@ -816,6 +833,17 @@ VkResult CreateGraphicsPipeline(void) {
     CALL_VK(vkCreatePipelineCache(device.device_, &pipelineCacheInfo, nullptr,
                                   &gfxPipeline.cache_));
 
+    VkPipelineDepthStencilStateCreateInfo depthstencil{
+            .sType = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO,
+            .depthTestEnable = VK_TRUE,
+            .depthWriteEnable = VK_TRUE,
+            .depthCompareOp = VK_COMPARE_OP_LESS,
+            .depthBoundsTestEnable = VK_FALSE,
+            .minDepthBounds = 0.0f,
+            .maxDepthBounds = 1.0f,
+            .stencilTestEnable = VK_FALSE,
+
+    };
     // Create the pipeline
     VkGraphicsPipelineCreateInfo pipelineCreateInfo{
             .sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO,
@@ -829,7 +857,7 @@ VkResult CreateGraphicsPipeline(void) {
             .pViewportState = &viewportInfo,
             .pRasterizationState = &rasterInfo,
             .pMultisampleState = &multisampleInfo,
-            .pDepthStencilState = nullptr,
+            .pDepthStencilState = &depthstencil,
             .pColorBlendState = &colorBlendInfo,
             .pDynamicState = &dynamicStateInfo,
             .layout = gfxPipeline.layout_,
@@ -925,7 +953,7 @@ bool InitVulkan(android_app* app) {
 
     // -----------------------------------------------------------------
     // Create 2 frame buffers.
-    readFile("teapot.obj");
+    readFile("Teapot.obj");
     CreateFrameBuffers(render.renderPass_);
 
     CreateBuffers();  // create vertex buffers
@@ -937,6 +965,7 @@ bool InitVulkan(android_app* app) {
     createDescSet();
     CreateGraphicsPipeline();
     initialiseuniforms();
+    //createDepthResource();
     // -----------------------------------------------
     // Create a pool of command buffers to allocate command buffer from
     VkCommandPoolCreateInfo cmdPoolCreateInfo{
@@ -1021,14 +1050,14 @@ bool InitVulkan(android_app* app) {
 
         vkCmdPushConstants(render.cmdBuffer_[bufferIndex],gfxPipeline.layout_,VK_SHADER_STAGE_FRAGMENT_BIT, 0,
                            sizeof(UniFrag), &sun);
-            vkCmdBindVertexBuffers(render.cmdBuffer_[bufferIndex], 0, 1,
+        vkCmdBindVertexBuffers(render.cmdBuffer_[bufferIndex], 0, 1,
                                    &buffers.vertexBuf_[0], offset);
 
 
 
 
             // Draw Triangle
-            vkCmdDraw(render.cmdBuffer_[bufferIndex], objVerts.size(), 1, 0, 0);
+        vkCmdDraw(render.cmdBuffer_[bufferIndex], trueVerts.size(), 1, 0, 0);
 
 
         //vkCmdBindVertexBuffers(render.cmdBuffer_[bufferIndex], 0, 1,
@@ -1150,8 +1179,7 @@ bool VulkanDrawFrame(void) {
 
 void updateUniformBuffer()
 {
-    mvp.model = glm::rotate(mvp.model, glm::radians(1.0f), glm::vec3(0.0f,0.0f,1.0f));
-
+    mvp.model = glm::rotate(mvp.model, glm::radians(1.0f), glm::vec3(0.0f,1.0f,0.0f));
 
 
 
@@ -1303,7 +1331,99 @@ void initialiseuniforms()
     mvp.proj [11] = 5.0f+-5.0f/ 5.0f+5.0f;
     mvp.proj [15] = 1.0f;
     */
-    mvp.proj = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f);
+    mvp.proj = glm::ortho(-5.0f,5.0f,10.0f,-10.0f,-50.0f,50.0f);
+    //mvp.proj = glm::perspective(45.0f,480.0f/ 360.0f,0.0f,10.0f);
     mvp.view = glm::lookAt(glm::vec3(0.0f,0.0f,0.0f),glm::vec3(-0.5f,-.5f,1.0f), glm::vec3(0.0f,1.0f,0.0f) );
     mvp.model = glm::mat4(1.0f);
+    mvp.model = glm::translate(mvp.model, glm::vec3(0.0f, 0.5f, 0.5f));
+
+}
+/*
+VkFormat findSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features)
+{
+    for (VkFormat format:candidates)
+    {
+        VkFormatProperties props;
+        vkGetPhysicalDeviceFormatProperties(device.gpuDevice_,format,&props);
+        if(tiling == VK_IMAGE_TILING_LINEAR && (props.linearTilingFeatures & features) == features)
+        {
+            return format;
+        }
+        else if (tiling == VK_IMAGE_TILING_OPTIMAL && (props.optimalTilingFeatures & features) == features)
+        {
+            return format;
+        }
+    }
+    return format;
+}
+
+VkFormat findDepthFormat()
+{
+    return findSupportedFormat({VK_FORMAT_D32_SFLOAT, VK_FORMAT_D32_SFLOAT_S8_UINT, VK_FORMAT_D24_UNORM_S8_UINT},
+VK_IMAGE_TILING_OPTIMAL,VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT);
+}
+
+bool hasStencilComponent(VkFormat format) {
+    return format == VK_FORMAT_D32_SFLOAT_S8_UINT || format == VK_FORMAT_D24_UNORM_S8_UINT;
+}
+
+void createDepthResources()
+{
+    VkFormat depthFormat = findDepthFormat();
+    createImage(swapchain.displaySize_.width, swapchain.displaySize_.height, depthFormat, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, depthImage, depthImageMemory);
+ depthImageView = createImageView(depthImage, depthFormat);
+}
+*/
+void createImage(uint32_t width, uint32_t height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage& image, VkDeviceMemory& imageMemory) {
+    VkImageCreateInfo imageInfo = {};
+    imageInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
+    imageInfo.imageType = VK_IMAGE_TYPE_2D;
+    imageInfo.extent.width = width;
+    imageInfo.extent.height = height;
+    imageInfo.extent.depth = 1;
+    imageInfo.mipLevels = 1;
+    imageInfo.arrayLayers = 1;
+    imageInfo.format = format;
+    imageInfo.tiling = tiling;
+    imageInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+    imageInfo.usage = usage;
+    imageInfo.samples = VK_SAMPLE_COUNT_1_BIT;
+    imageInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+
+    if (vkCreateImage(device.device_, &imageInfo, nullptr, &image) != VK_SUCCESS) {
+
+    }
+
+    VkMemoryRequirements memRequirements;
+    vkGetImageMemoryRequirements(device.device_, image, &memRequirements);
+
+    VkMemoryAllocateInfo allocInfo = {};
+    allocInfo.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
+    allocInfo.allocationSize = memRequirements.size;
+    allocInfo.memoryTypeIndex = findMemoryType(memRequirements.memoryTypeBits, properties);
+
+    if (vkAllocateMemory(device.device_, &allocInfo, nullptr, &imageMemory) != VK_SUCCESS) {
+    }
+
+    vkBindImageMemory(device.device_, image, imageMemory, 0);
+}
+
+VkImageView createImageView(VkImage image, VkFormat format, VkImageAspectFlags aspectFlags) {
+    VkImageViewCreateInfo viewInfo = {};
+    viewInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
+    viewInfo.image = image;
+    viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
+    viewInfo.format = format;
+    viewInfo.subresourceRange.aspectMask = aspectFlags;
+    viewInfo.subresourceRange.baseMipLevel = 0;
+    viewInfo.subresourceRange.levelCount = 1;
+    viewInfo.subresourceRange.baseArrayLayer = 0;
+    viewInfo.subresourceRange.layerCount = 1;
+
+    VkImageView imageView;
+    if (vkCreateImageView(device.device_, &viewInfo, nullptr, &imageView) != VK_SUCCESS) {
+
+    }
+
+    return imageView;
 }

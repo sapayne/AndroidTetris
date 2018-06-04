@@ -1,11 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyPassword '123456'
+            storeFile file('/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/deb.jks')
+            storePassword '123456'
+        }
+    }
     compileSdkVersion 24
-
     defaultConfig {
-        applicationId  "com.google.vulkan.tutorials.five"
-        minSdkVersion    24
+        applicationId "com.google.vulkan.tutorials.five"
+        minSdkVersion 24
         targetSdkVersion 24
         versionCode 1
         versionName "0.0.1"
@@ -25,13 +31,11 @@ android {
             }
         }
     }
-
-   externalNativeBuild {
+    externalNativeBuild {
         cmake {
             path 'CMakeLists.txt'
         }
     }
-
     buildTypes {
         release {
             minifyEnabled = false
@@ -41,5 +45,5 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 }

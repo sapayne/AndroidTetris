@@ -1,4 +1,4 @@
-#Fri May 18 12:13:39 BST 2018
+#Mon Jun 04 09:58:16 BST 2018
 base.0=/home/SERILOCAL/d.dadolahi-s/Downloads/android-studio/bin/https\:/github.com/googlesamples/android-vulkan-tutorials.git/android-vulkan-tutorials/tutorial05_triangle/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
