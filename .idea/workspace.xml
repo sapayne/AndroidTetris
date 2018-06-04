@@ -1,56 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1300f11c-fcec-4da6-9456-d64a624103ad" name="Default" comment="signing config issue">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
+    <list default="true" id="1300f11c-fcec-4da6-9456-d64a624103ad" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/.ninja_deps" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/.ninja_deps" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/.ninja_log" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/.ninja_log" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/vktuts.dir/src/main/jni/VulkanMain.cpp.o" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/CMakeFiles/vktuts.dir/src/main/jni/VulkanMain.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/libapp-glue.a" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/arm64-v8a/libapp-glue.a" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_deps" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_deps" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_log" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_log" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/.ninja_deps" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/.ninja_deps" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/.ninja_log" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86/.ninja_log" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/.ninja_deps" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/.ninja_deps" />
-      <change beforePath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/.ninja_log" afterPath="$PROJECT_DIR$/app/.externalNativeBuild/cmake/debug/x86_64/.ninja_log" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/assets/shaders/debug/shaders/tri.frag.spv" afterPath="$PROJECT_DIR$/app/build/generated/assets/shaders/debug/shaders/tri.frag.spv" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/assets/shaders/debug/shaders/tri.vert.spv" afterPath="$PROJECT_DIR$/app/build/generated/assets/shaders/debug/shaders/tri.vert.spv" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/shaders/tri.frag.spv" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/shaders/tri.frag.spv" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/shaders/tri.vert.spv" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/debug/shaders/tri.vert.spv" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/debug/teapot.obj" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/cmake/debug/obj/arm64-v8a/libvktuts.so" afterPath="$PROJECT_DIR$/app/build/intermediates/cmake/debug/obj/arm64-v8a/libvktuts.so" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/merge-state" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/merge-state" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/file-input-save-data.txt" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/izJq+JMB8jkfZ3xUOvQV8QXdBJs=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/izJq+JMB8jkfZ3xUOvQV8QXdBJs=" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/resources-debug.ap_" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/shaders/debug/tri.frag" afterPath="$PROJECT_DIR$/app/build/intermediates/shaders/debug/tri.frag" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/shaders/debug/tri.vert" afterPath="$PROJECT_DIR$/app/build/intermediates/shaders/debug/tri.vert" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/arm64-v8a/libvktuts.so" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/arm64-v8a/libvktuts.so" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJniLibs/debug/__content__.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stripDebugSymbol/debug/0/lib/arm64-v8a/libvktuts.so" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stripDebugSymbol/debug/0/lib/arm64-v8a/libvktuts.so" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/stripDebugSymbol/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/stripDebugSymbol/debug/__content__.json" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/output.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/teapot.obj" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/jni/VulkanMain.cpp" afterPath="$PROJECT_DIR$/app/src/main/jni/VulkanMain.cpp" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/shaders/tri.frag" afterPath="$PROJECT_DIR$/app/src/main/shaders/tri.frag" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/shaders/tri.vert" afterPath="$PROJECT_DIR$/app/src/main/shaders/tri.vert" />
-      <change beforePath="$PROJECT_DIR$/tutorial05_triangle.iml" afterPath="$PROJECT_DIR$/tutorial05_triangle.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -2485,6 +2437,14 @@
       <option name="presentableId" value="Default" />
       <updated>1528101757844</updated>
     </task>
+    <task id="LOCAL-00001" summary="signing config issue">
+      <created>1528104204541</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1528104204541</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
