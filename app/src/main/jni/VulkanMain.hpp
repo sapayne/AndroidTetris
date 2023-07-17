@@ -15,6 +15,7 @@
 #define __VULKANMAIN_HPP__
 
 #include <android_native_app_glue.h>
+#include <vector>
 
 // Initialize vulkan device context
 // after return, vulkan is ready to draw
@@ -28,6 +29,14 @@ bool IsVulkanReady(void);
 
 // Ask Vulkan to Render a frame
 bool VulkanDrawFrame(void);
+
+void translate(int x, int y);
+
+bool cClockwiseRotation();
+
+bool clockwiseRotation();
+
+void genNextPiece();
 
 #endif // __VULKANMAIN_HPP__
 

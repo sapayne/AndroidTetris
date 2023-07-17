@@ -14,16 +14,8 @@
 #version 400
 #extension GL_ARB_separate_shader_objects : enable
 #extension GL_ARB_shading_language_420pack : enable
-
-layout (location = 0) out vec4 FragColor;
-layout (location = 1) in vec4 position;
-
-layout (push_constant) uniform myPush
-{
-    float pos[4];
-}sun;
+layout (location = 0) in vec3 fragColor;
+layout (location = 0) out vec4 uFragColor;
 void main() {
-    float yValue;
-    yValue = dot (vec4(sun.pos[0], sun.pos[1], sun.pos[2], 1.0), position);
-   FragColor = vec4(0, yValue* 0.05 ,  0.0, 1.0);
+   uFragColor = vec4(fragColor, 1.0);
 }

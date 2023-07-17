@@ -14,39 +14,10 @@
 #version 400
 #extension GL_ARB_separate_shader_objects : enable
 #extension GL_ARB_shading_language_420pack : enable
-
-layout(set = 0, binding = 0) uniform buff_t
-{
-    mat4 model;
-    mat4 view;
-    mat4 proj;
-
-} buff;
-
-layout (location = 0) in vec4 pos;
-layout (location = 1) out vec4 position;
-
-mat4 deadFunc(mat4 _a, mat4 _b)
-{
-
-mat4 mAns;
-
-mAns = _a * _b;
-for (int i=0; i < 4; i++)
-{
-    for (int j=0; j < 4; j++)
-    {
-    mAns[i][j] = _a[i][j] * _b[i][j];
-    }
-}
-return mAns;
-
-}
-
-
-
+layout (location = 0) in vec3 pos;
+layout (location = 1) in vec3 inColor;
+layout (location = 0) out vec3 fragColor;
 void main() {
-    //mat4 result =deadFunc(buff.model, buff.view);
-    gl_Position = buff.model* buff.view* buff.proj*  pos;
-    position = vec4(pos.x, pos.y,pos.z,1.0f);
+    gl_Position = vec4(pos, 1.0);
+    fragColor = inColor;
 }
