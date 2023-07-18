@@ -33,7 +33,7 @@
 </div>
 
 <div align="center" >
-  <div text-align="center">A full circle is not required to be drawn to rotate a piece, instead the piece is rotated after each quarter circle is drawn as it's faster for the player to input. If the player ever makes a mistake they can quickly update the rotation by drawing in the opposite rotation as seen below:</div>
+  <div text-align="center">A full circle is not required to be drawn to rotate a piece, instead the piece is rotated after each quarter circle is drawn as it's faster for the player to input. If the player ever makes a mistake they can quickly update the rotation by drawing in the opposite rotation direction as seen below:</div>
   <img align="center" src="./Images/touch - when rotation commands are processed.png" height="400px"> 
-  <div text-align="center">The input above will result in the rotation before the input, however it will rotate once clockwise then wait for touch release or another rotation input before applying the last pending (counter-clockwise) rotation.</div>
+  <div text-align="center">The input above will result in the rotation before the input, however it will rotate clockwise once then wait for touch release or another rotation input before applying the last pending (counter-clockwise) rotation.</div>
 </div>
